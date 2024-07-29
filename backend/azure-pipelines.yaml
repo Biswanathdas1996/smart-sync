@@ -1,0 +1,26 @@
+trigger:
+- main
+ 
+# pool:
+#   vmImage: ubuntu-latest
+
+pool: Azure Pipelines
+
+ 
+steps:
+
+- task: Docker@2
+  inputs:
+    containerRegistry: 'sandbox-016-acr-svc-conn'
+    repository: 'tax-backend-python'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+ 
+- task: AzureWebAppContainer@1
+  inputs:
+    azureSubscription: 'sandbox-016-svc-conn'
+    appName: 'smart-syncs-backend'
+    containers: 'genaiacrrepos.azurecr.io/tax-backend-python:$(Build.BuildId)'
+
+
+ 

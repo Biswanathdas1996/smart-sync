@@ -1,0 +1,31 @@
+.history {
+  color: #900C3F;
+  font: normal normal bold 36px/47px Montserrat !important;
+}
+
+.data-grid {
+  height: 400px;
+  width: 100%;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  width: 200px;
+}
+
+a {
+  color: black !important;
+  text-decoration: none !important;
+  font-size: 12px !important;
+}
+a.active {
+  color: #900C3F !important;
+  font-weight: 700 !important;
+}

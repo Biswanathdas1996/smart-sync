@@ -1,0 +1,34 @@
+Address,Convert the Address to ISO 20022-formatted full invoice addresses in XML format ,Document
+"608, Mandi Kesar Ganj Ludhiana (Pb). 2724491 0161-272717, 03AAVPG4161B1ZZ  Punjab, Code : 03","<PmtInf>
+    <PmtInfId>PaymentInfo123</PmtInfId>
+    <PmtMtd>TRF</PmtMtd>
+    <NbOfTxs>1</NbOfTxs>
+    <CtrlSum>1000.00</CtrlSum>
+    <PmtTpInf>
+        <SvcLvl>
+            <Cd>SEPA</Cd>
+        </SvcLvl>
+    </PmtTpInf>
+    <ReqdExctnDt>2024-07-30</ReqdExctnDt>
+    <Dbtr>
+        <Nm>Ravi Kumar</Nm>
+        <PstlAdr>
+            <AdrLine>Flat 301, Building 7</AdrLine>
+            <AdrLine>Sector 15, Rohini</AdrLine>
+            <AdrLine>New Delhi</AdrLine>
+            <PstCd>110089</PstCd>
+            <TwnNm>New Delhi</TwnNm>
+            <Ctry>IN</Ctry>
+        </PstlAdr>
+    </Dbtr>
+    <DbtrAcct>
+        <Id>
+            <IBAN>IN12345678901234567890</IBAN>
+        </Id>
+    </DbtrAcct>
+    <DbtrAgt>
+        <FinInstnId>
+            <BIC>BANKIN33</BIC>
+        </FinInstnId>
+    </DbtrAgt>
+</PmtInf>",MI099

@@ -1,0 +1,2 @@
+Address,Convert the Address to ISO 20022-formatted full invoice addresses in XML format ,Document
+"608, Mandi Kesar Ganj Ludhiana (Pb). 2724491",<Adr><AdrTp>BSHP</AdrTp><Dept>608</Dept><StrtNm>Mandi Kesar Ganj</StrtNm><CityNm>Ludhiana</CityNm><Ctry>IN</Ctry><PstCd>2724491</PstCd></Adr>,MI099

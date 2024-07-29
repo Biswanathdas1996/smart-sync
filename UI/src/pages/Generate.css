@@ -1,0 +1,46 @@
+.paper {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .section-title {
+    margin-bottom: 10px;
+  }
+  
+  .list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .list-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .secondary-action {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .secondary-action button {
+    padding: 5px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .secondary-action button:hover {
+    color: #007bff;
+  }
+  
+  .add-button {
+    color: #900C3F;
+  }
+  
+  .delete-button {
+    color: #f44336;
+  }
+  

@@ -1,0 +1,7 @@
+[
+    {
+        "Address": "ONE BKC A Wing Level 5 & 7 | Bandra Kurla Complex Bandra East | Mumbai 400 051 | Maharashtra INDIA",
+        "Convert the Address to ISO 20022-formatted full invoice addresses in XML format ": "<Add>ONE BKC A Wing Level 5 & 7\n<Street>Bandra Kurla Complex Bandra East</Street>\n<City>Mumbai</City>\n<PostCode>400 051</PostCode>\n<Country>MAHARASHTRA INDIA</Country>\n</Add>",
+        "Document": "BOM:372783-FACEBOOK INDIA ONLINE SERVICES-INVOICE-October 2022"
+    }
+]

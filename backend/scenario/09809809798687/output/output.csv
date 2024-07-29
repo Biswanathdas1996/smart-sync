@@ -1,0 +1,38 @@
+Address,Convert the Address to ISO 20022-formatted full invoice addresses in XML format ,Document
+"SMARTPADDLE TECHNOLOGY PRIVATE LIMITED
+90B, Sector 18, Delhi-Jaipur Expy, Gurugram - 122001
+Delhi, Jaipur Expy, Gurugram - 122001
+Haryana, India","<PmtInf>
+    <PmtInfId>PaymentInfo123</PmtInfId>
+    <PmtMtd>TRF</PmtMtd>
+    <NbOfTxs>1</NbOfTxs>
+    <CtrlSum>1000.00</CtrlSum>
+    <PmtTpInf>
+        <SvcLvl>
+            <Cd>SEPA</Cd>
+        </SvcLvl>
+    </PmtTpInf>
+    <ReqdExctnDt>2024-07-30</ReqdExctnDt>
+    <Dbtr>
+        <Nm>SMARTPADDLE TECHNOLOGY PRIVATE LIMITED</Nm>
+        <PstlAdr>
+            <AdrLine>90B, Sector 18, Delhi-Jaipur Expy</AdrLine>
+            <AdrLine>Gurugram - 122001</AdrLine>
+            <AdrLine>Delhi, Jaipur Expy</AdrLine>
+            <AdrLine>Gurugram - 122001</AdrLine>
+            <PstCd>122001</PstCd>
+            <TwnNm>Gurugram</TwnNm>
+            <Ctry>IN</Ctry>
+        </PstlAdr>
+    </Dbtr>
+    <DbtrAcct>
+        <Id>
+            <IBAN>IN12345678901234567890</IBAN>
+        </Id>
+    </DbtrAcct>
+    <DbtrAgt>
+        <FinInstnId>
+            <BIC>BANKIN33</BIC>
+        </FinInstnId>
+    </DbtrAgt>
+</PmtInf>",MI099

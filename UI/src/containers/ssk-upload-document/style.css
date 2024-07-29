@@ -1,0 +1,24 @@
+.upload-container {
+  cursor: pointer !important;
+}
+
+#add-new-template,
+#default-temp,
+#upload-file {
+  display: none !important;
+}
+
+pre{
+  
+    font-size: 12px;
+    background: #900c3f17;
+    padding: 10px;
+    border-radius: 15px;
+}
+code{
+  
+    font-size: 12px;
+    background: #900c3f17;
+    
+    border-radius: 15px;
+}

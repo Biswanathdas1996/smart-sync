@@ -1,0 +1,7 @@
+[
+    {
+        "Address": "608, Mandi Kesar Ganj Ludhiana (Pb). 2724491 0161-272717,  GSTIN/UIN: 03AAVPG4161B1ZZ State Name : Punjab, Code : 03",
+        "Convert the Address to ISO 20022-formatted full invoice addresses in XML format ": "<Address>\n<StreetAndNumber>608, Mandi Kesar Ganj</StreetAndNumber>\n<City>Ludhiana</City>\n<Region>Punjab</Region>\n<PostalCode>2724491</PostalCode>\n<Country>India</Country>\n</Address>",
+        "Document": "MI099"
+    }
+]

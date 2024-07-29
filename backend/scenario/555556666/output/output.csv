@@ -1,0 +1,17 @@
+Address,Convert the Address to ISO 20022-formatted full invoice addresses in XML format ,Document
+ONE BKC A Wing Level 5 & 7 | Bandra Kurla Complex Bandra East | Mumbai 400 051 | Maharashtra INDIA,"<Address>
+            <Country>IN</Country>
+            <AddressLine1>ONE BKC A Wing Level 5 & 7</AddressLine1>
+            <AddressLine2>Bandra Kurla Complex Bandra East</AddressLine2>
+            <City>Mumbai</City>
+            <PostalCode>400 051</PostalCode>
+            <StateProvince>Maharashtra</StateProvince>
+        </Address>",BOM:372783-FACEBOOK INDIA ONLINE SERVICES-INVOICE-October 2022
+"608, Mandi Kesar Ganj Ludhiana (Pb). 2724491","<Address>
+            <Country>IN</Country>
+            <AddressLine1>608, Mandi Kesar Ganj</AddressLine1>
+            <AddressLine2>Ludhiana (Pb)</AddressLine2>
+            <City>Ludhiana</City>
+            <PostalCode>2724491</PostalCode>
+            <StateProvince>Punjab</StateProvince>
+        </Address>",MI099

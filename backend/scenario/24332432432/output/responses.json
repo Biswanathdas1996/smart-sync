@@ -1,0 +1,1 @@
+["[\n    {\n        \"Address\": \"608, Mandi Kesar Ganj Ludhiana (Pb). 2724491\",\n        \"Convert the Address to ISO 20022-formatted full invoice addresses in XML format \": \"<Add> <Str>608, Mandi Kesar Ganj</Str> <PstCd>2724491</PstCd> <City>Ludhiana</City> <Ctry>India</Ctry> </Add>\",\n        \"Document\": \"MI099\"\n    }\n]"]
