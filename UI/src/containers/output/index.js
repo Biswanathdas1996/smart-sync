@@ -13,7 +13,31 @@ import {
 import { BASE_API_URL } from "../../config";
 import Strpper from "../../components/Staper";
 import xlsImage from "../../assets/images/img-xls.png";
-import XML from "./XML"
+import SyncWithDB from "./SyncWithDB"
+import SimCardDownloadIcon from '@mui/icons-material/SimCardDownload';
+
+const downloadXML = (xmlData) => {
+  // Create a Blob from the XML data
+  const blob = new Blob([xmlData], { type: 'application/xml' });
+
+  // Create a link element
+  const link = document.createElement('a');
+
+  // Set the download URL to the Blob object
+  link.href = URL.createObjectURL(blob);
+
+  // Set the download attribute with a filename
+  link.download = 'data.xml';
+
+  // Append the link to the document body (it must be in the DOM to work)
+  document.body.appendChild(link);
+
+  // Programmatically click the link to trigger the download
+  link.click();
+
+  // Remove the link from the document
+  document.body.removeChild(link);
+};
 
 const DataTable = () => {
   const [data, setData] = React.useState(null);
@@ -98,13 +122,13 @@ const DataTable = () => {
 
 
 
-function isValidAddressFormat(value) {
-  const regex = /<PstlAdr[\s\S]*<\/PstlAdr>/;
-  return regex.test(value);
-}
+  function isValidAddressFormat(value) {
+    const regex = /<PstlAdr[\s\S]*<\/PstlAdr>/;
+    return regex.test(value);
+  }
 
   return (
-    <>
+    <div className="container-fluid">
       <div className="ss-inr-hero position-relative mb-4">
         <div className="page-back-btn">
           <button onClick={() => window.history.back()}>
@@ -152,9 +176,14 @@ function isValidAddressFormat(value) {
                     key={valueIndex}
                     style={{ border: "1px solid gray" }}
                   >
-                    
-                    {isValidAddressFormat(value) ? <pre><code> {value} </code> </pre>: value }
-                    
+
+                    {isValidAddressFormat(value) ? (
+                      <pre >
+
+                        <code> {value} </code>
+                        <SimCardDownloadIcon style={{cursor:"pointer", fontSize:20,  float:"right"}} onClick={() => downloadXML(value)} />
+                      </pre>) : value}
+
                   </TableCell>
                 ))}
               </TableRow>
@@ -167,16 +196,23 @@ function isValidAddressFormat(value) {
         className="d-flex justify-content-end upld-btnpage"
         style={{ marginTop: 20 }}
       >
-        <Button className="cmn-btn" onClick={() => exportToCSV()}>
-          Download CSV
-        </Button>
-        <Button className="cmn-btn" onClick={goToDashboard}>
+        <SyncWithDB data={data} />
+
+        <div className="hm-ulogin-btn">
+          <button className="cmn-btn" onClick={() => exportToCSV()} >
+            Download CSV
+          </button>
+        </div>
+
+
+        {/* <Button className="cmn-btn" onClick={goToDashboard}>
           Go to Dashboard
-        </Button>
+        </Button> */}
+
       </div>
       <br />
       <br />
-    </>
+    </div>
   );
 };
 

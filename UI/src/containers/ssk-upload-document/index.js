@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import uploadImage from "../../assets/images/img-upload.png";
 import googleDriveImage from "../../assets/images/img-gdrive.png";
 import dropBoxImgage from "../../assets/images/img-dropbox.png";
@@ -128,7 +128,7 @@ const UploadDocument = () => {
         navigate("/results");
       })
       .catch((error) => console.log("error", error))
-      .finally(()=>{
+      .finally(() => {
         setGenerateOutputCall(false);
       });
   };
@@ -190,15 +190,18 @@ const UploadDocument = () => {
     el1.click();
   };
 
-  const handleDefaultFileChange = (event) => {
+
+
+
+  const handleDefaultFileChange = () => {
     setUploadingTemplate(true);
-    if (event.target.files[0]) {
+
       const el1 = document.getElementById("default-temp-radio");
       el1.checked = true;
-      setDefaultTemp(event.target.files[0]);
+      setDefaultTemp("");
       const projectName = localStorage.getItem("project");
       var formdata = new FormData();
-      formdata.append("file", event.target.files[0]);
+      formdata.append("file", "");
       formdata.append("title", projectName);
 
       var requestOptions = {
@@ -212,19 +215,25 @@ const UploadDocument = () => {
         .then((result) => {
           console.log(result);
           setTemplateResponse(result);
-          localStorage.setItem("templateResponse", JSON.stringify(result));
-          setUploadingTemplate(false);
+          localStorage.setItem("templateResponse", JSON.stringify([{ "Address": "---", "Convert the Address to ISO 20022-formatted full invoice addresses in XML format ": "---", "Document": "---" }]));
+          // setUploadingTemplate(false);
+          handleSave(3)
         })
         .catch((error) => {
-          setUploadingTemplate(false);
+          // setUploadingTemplate(false);
           alart(error);
           console.log("error", error);
         });
 
-      console.log("defaultTemp", event.target.files[0]);
-    }
+     
+    
   };
 
+  useEffect(()=>{
+    handleDefaultFileChange()
+   
+  },[])
+  
   const handleAddNewTemp = () => {
     const el1 = document.getElementById("add-new-template");
     el1.click();
@@ -254,7 +263,7 @@ const UploadDocument = () => {
       <div className="row ss-inr-upload p-4">
         {step === 2 && (
           <>
-            <Strpper activeStep={2} />
+            <Strpper activeStep={1} />
 
             {templateResponse ? (
               <div style={{ padding: 30 }}>
@@ -296,7 +305,7 @@ const UploadDocument = () => {
                   {!uploadingTemplate ? (
                     <div className="position-relative">
                       <h4>Upload a Template</h4>
-                      <br/>
+                      <br />
                       <div className="temp-upld-hldr d-flex flex-column upload-container">
                         <div
                           className="d-flex align-items-center gap-3 p-3 mb-4"
@@ -312,7 +321,7 @@ const UploadDocument = () => {
                             />
                           </div>
                           <div>
-                            <img src={xlsImgage} alt="" style={{height:75}}/>
+                            <img src={xlsImgage} alt="" style={{ height: 75 }} />
                           </div>
                           <div className="w-100 text-center">
                             Choose a new Template
@@ -320,7 +329,7 @@ const UploadDocument = () => {
                           <input
                             id="default-temp"
                             type="file"
-                            accept=".csv" 
+                            accept=".csv"
                             onChange={handleDefaultFileChange}
                           />
                         </div>
@@ -355,11 +364,11 @@ const UploadDocument = () => {
                       </div>
                     </div>
                   ) : (
-                    <div className="loader-container">
-                      <div className="loader"></div>
-                      <br />
-                      <p style={{ marginLeft: 20 }}>Processing template...</p>
-                    </div>
+                      <div className="loader-container">
+                        <div className="loader"></div>
+                        <br />
+                        <p style={{ marginLeft: 20 }}>Processing template...</p>
+                      </div>
                   )}
                 </div>
                 <div className="col-3 pe-5"></div>
@@ -370,30 +379,68 @@ const UploadDocument = () => {
 
         {step === 3 && (
           <>
-            <Strpper activeStep={3} />
+            <Strpper activeStep={2} />
 
             <div className="col-3 pe-5"></div>
             <div className="col-6 d-flex pe-5" style={{ padding: 30 }}>
-              <div className="position-relative w-100">
-                <h4>Upload document</h4>
-                <div
-                  className="upld-boxhldr w-100 mb-4 upload-container"
-                  onClick={handleFileUpload}
-                >
-                  <div className="img-hldr">
-                    <img src={uploadImage} alt="" />
+              <div className="position-relative w-100" style={{minHeight:"16rem"}}>
+                <br/>
+                {fileData.length > 0 ? (
+                  <div style={{ display: "_none" }} className="ss-filelisthldr">
+                    <h3>Uploaded Files</h3>
+                    <div className="d-flex flex-column w-100 gap-3 ss-upld-list">
+                      {fileData.map((selectedFiles, index) => {
+                        return (
+                          <div
+                            className="d-flex justify-content-space-between w-100"
+                            style={{ justifyContent: "space-between" }}
+                            key={index}
+                          >
+                            <div  className="d-flex justify-content-space-between w-100">
+                            <p>
+                              <img src={csvImgage} alt="" />{" "}
+                              <b style={{fontSize:9}}>{selectedFiles.name}</b>
+                            </p>
+                            {/* <p style={{fontSize:6}}>
+                              {selectedFiles.size < 1000000
+                                ? Math.floor(selectedFiles.size / 1000) + " KB"
+                                : Math.floor(selectedFiles.size / 1000000) +
+                                " MB"}
+                            </p> */}
+                            </div>
+                            <div className="d-flex justify-content-space-between ">
+                            
+                            <i
+                              className="bi bi-x"
+                              onClick={() => handleRemoveFile(index)}
+                            ></i>
+                            </div>
+                            {/* </button> */}
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
-                  <p>
-                    <strong>Click to upload zip or single file(s)</strong>
-                  </p>
-                  <p>Supported file : .xls, .csv, .zip</p>
-                  <input
-                    id="upload-file"
-                    type="file"
-                    multiple="multiple"
-                    onChange={handleFileChange}
-                  />
+                ):<div
+                className="upld-boxhldr w-100 mb-4 upload-container"
+                onClick={handleFileUpload}
+              >
+                <div className="img-hldr">
+                  <img src={uploadImage} alt="" />
                 </div>
+                <p>
+                  <strong>Click to upload single or multiple file(s)</strong>
+                </p>
+                <p>Supported file : .pdf, .jpg, .png</p>
+                <input
+                  id="upload-file"
+                  type="file"
+                  multiple="multiple"
+                  accept=".pdf"
+                  onChange={handleFileChange}
+                />
+              </div>}
+                
 
                 {!fileData.length && (
                   <div>
@@ -417,40 +464,7 @@ const UploadDocument = () => {
                   </div>
                 )}
 
-                {fileData.length > 0 && (
-                  <div style={{ display: "_none" }} className="ss-filelisthldr">
-                    <h3>Uploaded Files</h3>
-                    <div className="d-flex flex-column w-100 gap-3 ss-upld-list">
-                      {fileData.map((selectedFiles, index) => {
-                        return (
-                          <div
-                            className="d-flex justify-content-space-between w-100"
-                            style={{ justifyContent: "space-between" }}
-                            key={index}
-                          >
-                            <p>
-                              <img src={csvImgage} alt="" />{" "}
-                              {selectedFiles.name}
-                            </p>
-                            <p>
-                              {selectedFiles.size < 1000000
-                                ? Math.floor(selectedFiles.size / 1000) + " KB"
-                                : Math.floor(selectedFiles.size / 1000000) +
-                                " MB"}
-                            </p>
-                            {/* <p>Uploaded 2mins ago</p> */}
-                            {/* <button  > */}
-                            <i
-                              className="bi bi-x"
-                              onClick={() => handleRemoveFile(index)}
-                            ></i>
-                            {/* </button> */}
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                )}
+                
               </div>
             </div>
             <div className="col-3 pe-5"></div>
@@ -478,7 +492,7 @@ const UploadDocument = () => {
         {step === 4 && (
           <>
             <div>
-              <Strpper activeStep={4} />
+              <Strpper activeStep={3} />
 
               {processedData?.map((item, index) => (
                 <img

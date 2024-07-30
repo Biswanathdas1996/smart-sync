@@ -101,17 +101,17 @@ def create_folder():
 
 @app.route('/process-template', methods=['POST'])
 def upload_csv():
-    if 'file' not in request.files:
-        return jsonify({'error': 'No file part'})
-    file = request.files['file']
-    title = request.form['title']
-    # Create a new folder with the title
-    create_folders(title)  
-    # upload the tmplate into it
-    filename = secure_filename(file.filename)
-    filepath = os.path.join(f"scenario/{title}/template", filename)
-    file.save(filepath)
-    df = pd.read_csv(filepath)
+    # if 'file' not in request.files:
+    #     return jsonify({'error': 'No file part'})
+    # file = request.files['file']
+    # title = request.form['title']
+    # # Create a new folder with the title
+    # create_folders(title)  
+    # # upload the tmplate into it
+    # filename = secure_filename(file.filename)
+    # filepath = os.path.join("/", 'input_csv_file.csv')
+    # file.save(filepath)
+    df = pd.read_csv('input_csv_file.csv')
     headers = df.columns.tolist()
     formatted_headers = [{header: "---"} for header in headers]
     merged_data = dict()

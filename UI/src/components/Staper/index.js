@@ -116,11 +116,10 @@ function ColorlibStepIcon(props) {
 
   const icons = {
     1: <SettingsIcon />,
-    2: <SettingsIcon />,
-    3: <PostAddIcon />,
-    4: <CloudUploadIcon />,
-    5: <CloudSyncIcon />,
-    6: <CheckCircleIcon />,
+    2: <PostAddIcon />,
+    3: <CloudUploadIcon />,
+    4: <CloudSyncIcon />,
+    5: <CheckCircleIcon />,
   };
 
   return (
@@ -153,7 +152,6 @@ ColorlibStepIcon.propTypes = {
 
 const steps = [
   "Create Project",
-  "Choose a Model",
   "Choose a Template",
   "Upload Files",
   "Processing",

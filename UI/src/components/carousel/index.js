@@ -10,7 +10,7 @@ const Carousel = () => {
           <img src={caroselOne} className="d-block w-100" alt="..." />
           <div className="carousel-caption d-none d-md-block">
             <p>
-              At SmartSync, we believe in the power of seamless data
+              At OpenISO, we believe in the power of seamless data
               synchronization
             </p>
           </div>
@@ -19,8 +19,7 @@ const Carousel = () => {
           <img src={caroselTwo} className="d-block w-100" alt="..." />
           <div className="carousel-caption d-none d-md-block">
             <p>
-              Empower individuals and businesses to work
-              smarter and more efficiently
+            Seamlessly Convert Addresses to ISO 3166 Format Using Our Advanced Tool
             </p>
           </div>
         </div>

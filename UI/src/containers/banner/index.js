@@ -25,7 +25,7 @@ const Banner = () => {
           >
             Try Now <i className="bi bi-chevron-right"></i>
           </button>
-          <button className="cmn-btn" onClick={handleDetailView}>Watch a demo</button>
+          <button className="cmn-btn" >Watch a demo</button>
         </div>
       </section>
       <Modal open={openDemoDetail} anchorEl={openDemoVideo} anchorOrigin={{ vertical: "top", horizontal: "center" }} transformOrigin={{ vertical: "top", horizontal: "center" }}>

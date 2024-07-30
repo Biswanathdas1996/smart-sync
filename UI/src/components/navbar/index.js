@@ -24,16 +24,16 @@ const NavBar = () => {
           <ul className="navbar-nav cmn-navul">
             <li className="nav-item dropdown">
               <a
-                className="nav-link dropdown-toggle"
+                className="nav-link "
                 href="#"
                 id="navbarDropdown"
                 role="button"
-                data-bs-toggle="dropdown"
+                // data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Product
+                Home
               </a>
-              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+              {/* <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
                   <a className="dropdown-item" href="#">
                     Action
@@ -52,9 +52,9 @@ const NavBar = () => {
                     Something else here
                   </a>
                 </li>
-              </ul>
+              </ul> */}
             </li>
-            <li className="nav-item dropdown">
+            {/* <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
                 href="#"
@@ -90,10 +90,15 @@ const NavBar = () => {
               <a className="nav-link" href="#">
                 Pricing
               </a>
-            </li>
+            </li> */}
             <li className="nav-item">
               <a className="nav-link" href="#">
                 About Us
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">
+                Contact Us
               </a>
             </li>
           </ul>

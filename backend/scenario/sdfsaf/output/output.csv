@@ -1,0 +1,10 @@
+Address,Convert the Address to ISO 20022-formatted full invoice addresses in XML format ,Document
+"90B, Sector 18, Delhi-Jaipur Expy, Gurugram - 122001, Delhi, Jaipur Expy, Gurugram - 122001","<PstlAdr>
+<AdrLine>90B, Sector 18, Delhi-Jaipur Expy</AdrLine>
+<AdrLine>Gurugram - 122001</AdrLine>
+<AdrLine>Delhi, Jaipur Expy</AdrLine>
+<AdrLine>Gurugram - 122001</AdrLine>
+<PstCd>122001</PstCd>
+<TwnNm>Gurugram</TwnNm>
+<Ctry>IN</Ctry>
+</PstlAdr>",MI099

@@ -29,7 +29,7 @@ const CompanyLogin = () => {
           console.log(result);
           localStorage.setItem("project", projectName);
           setLoading(false);
-          navigate("/model");
+          navigate("/upload-document"); 
         })
         .catch((error) => console.log("error", error));
     } else {
@@ -49,7 +49,7 @@ const CompanyLogin = () => {
                 <i className="bi bi-chevron-left"></i>
               </button>
             </div>
-            <h2>Welcome to SmartSync!!</h2>
+            <h2>Welcome to OpenISO</h2>
             <h4>Create a new project</h4>
 
             <div className="frm-hldr">
