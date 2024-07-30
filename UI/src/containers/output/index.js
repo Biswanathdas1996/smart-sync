@@ -181,7 +181,7 @@ const DataTable = () => {
                       <pre >
 
                         <code> {value} </code>
-                        <SimCardDownloadIcon style={{cursor:"pointer", fontSize:20,  float:"right"}} onClick={() => downloadXML(value)} />
+                        <SimCardDownloadIcon style={{ cursor: "pointer", fontSize: 20, float: "right" }} onClick={() => downloadXML(value)} />
                       </pre>) : value}
 
                   </TableCell>
